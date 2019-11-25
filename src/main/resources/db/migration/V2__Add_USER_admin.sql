@@ -1,0 +1,1 @@
+insert into DODO_USER (USERNAME, PASSWORD,ROLE) values ('admin', '123456',0);

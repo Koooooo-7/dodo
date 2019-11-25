@@ -1,4 +1,4 @@
-package com.koy.dodo.web;
+package com.koy.dodo.web.portal;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +13,10 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/")
 public class PortalController {
 
+    @RequestMapping(value = "/",method = RequestMethod.GET)
+    public String portal(){
+        return "redirect:/index";
+    }
 
     @RequestMapping(value = "/index",method = RequestMethod.GET)
     public String index(){

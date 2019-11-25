@@ -1,3 +1,72 @@
-.pogo-nav-box {
-    background-color: #66CCCC;
+/*nav*/
+
+
+/*Banner*/
+.dodo-carousel-inner {
+    max-height: 400px;
+}
+
+.dodo-carousel-indicators {
+    bottom: -100px;
+    left: 90%
+
+}
+
+/*dodo-page-header*/
+.dodo-page-header{
+    margin-top: 20px;
+
+}
+/*ABOUT US*/
+.heading{position: relative;display: block;text-transform: uppercase;margin-bottom: 30px;text-align: center}
+.heading .sub{font-size: 15px;letter-spacing: 10px;color: #C4A648;}
+.heading .title{font-size: 70px;color: #286090;-webkit-transition: all .3s ease-in-out;-moz-transition: all .3s ease-in-out;transition: all .3s ease-in-out;}
+.heading .title:hover{letter-spacing: 10px;}
+.box-content.box-3 {text-align: center;padding: 80px 0 100px;}
+.box-style-1 .heading .sub{}
+.box-style-1 .heading .title{color: #286090;}
+.box-content.box-3 .title{font-size: 60px;}
+.box-content.box-3 p.lead{font-size: 24px;line-height: 42px;}
+
+/*footer*/
+.footer {
+    background-color: black;
+    color: #f5f5f5;
+    padding: 30px 0 60px
+}
+
+.footer .nav li {
+    float: left
+}
+
+.footer .nav li+li {
+    margin-left: 30px
+}
+
+.footer .nav li a {
+    color: inherit
+}
+
+.footer .nav li a:hover {
+    color: #555
+}
+
+
+
+
+
+
+
+/********************ADMIN*******************/
+/********************ADMIN*******************/
+/********************ADMIN*******************/
+/*login*/
+.dodo-admin-login-title{
+    padding-top: 20%;
+    color: #286090;
+}
+
+.dodo-admin-login-container{
+    margin: 10%;
+    background-color: #eaf9ed;
 }
