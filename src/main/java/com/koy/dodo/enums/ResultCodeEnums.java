@@ -10,7 +10,8 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 public enum  ResultCodeEnums {
 
-    USER_NOT_EXIST(100404,"帐号或者密码错误");
+    USER_NOT_EXIST(100404,"帐号或者密码错误"),
+    UPLOAD_FILE_FAILED(100500,"上传文件失败");
     private int code;
     private String desc;
 

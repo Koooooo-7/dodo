@@ -16,6 +16,12 @@ import java.util.UUID;
  */
 public class FileUtil {
 
+    /**
+     * 文件保存
+     * @param file
+     * @param path 默认基础路径
+     * @return
+     */
     public static FileVO saveFile(MultipartFile file, String path) {
         String originalFilename = file.getOriginalFilename();
         String suffixName = originalFilename.substring(originalFilename.lastIndexOf("."));

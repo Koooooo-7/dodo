@@ -1,7 +1,6 @@
 package com.koy.dodo.pojo.entity;
 
-import com.koy.dodo.enums.SortEnums;
-import com.koy.dodo.enums.StatusEnums;
+import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
@@ -14,12 +13,13 @@ import lombok.ToString;
 @EqualsAndHashCode(callSuper = true)
 @Data
 @ToString(callSuper = true)
+@TableName(value = "banner",keepGlobalPrefix = true)
 public class BannerPO extends BaseEntity {
 
     private String name;
     private String src;
-    private SortEnums sort;
-    private StatusEnums status;
+    private int sort;
+    private int status;
 
 
 }

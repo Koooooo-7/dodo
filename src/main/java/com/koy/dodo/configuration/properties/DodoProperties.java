@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 @Component
 @Data
 public class DodoProperties{
+    // 默认文件存储路径
     private String fileStorePath;
 
 }

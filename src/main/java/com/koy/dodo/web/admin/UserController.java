@@ -29,11 +29,18 @@ public class UserController {
     @Autowired
     private UserService userServiceImpl;
 
+    /**
+     * 登录默认根路径
+     * @return
+     */
     @RequestMapping(value = "" ,method = RequestMethod.GET)
     public String index(){
         return "redirect:/admin/login";
     }
-
+    /**
+     * 登录默认index路径
+     * @return
+     */
     @RequestMapping(value = "/login" ,method = RequestMethod.GET)
     public String login(HttpServletRequest request)
     {
@@ -43,8 +50,13 @@ public class UserController {
         return "/admin/login";
     }
 
+    /**
+     * 登录认证逻辑
+     * @return
+     */
     @RequestMapping(value = "/doLogin",method = RequestMethod.POST)
-    public String doLogin(UserVO userVO,HttpServletRequest request, ModelAndView model){
+    public String doLogin(UserVO userVO,HttpServletRequest request){
+        log.info("doLogin,user:{}",userVO);
         UserPO userPO = userServiceImpl.login(userVO);
         HttpSession session = request.getSession();
         if (userPO == null){
@@ -54,7 +66,7 @@ public class UserController {
         }
 
         session.setAttribute("username",userPO.getUsername());
-        log.info("login access,user:{}",userPO);
+        log.info("doLogin success,user:{}",userPO);
         return "redirect:/admin/index";
     }
 }

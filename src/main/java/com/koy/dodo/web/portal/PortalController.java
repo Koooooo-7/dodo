@@ -13,13 +13,20 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/")
 public class PortalController {
 
-    @RequestMapping(value = "/",method = RequestMethod.GET)
-    public String portal(){
+    /***
+     * 前台默认index页面路由
+     * @return
+     */
+    @RequestMapping(value = "/", method = RequestMethod.GET)
+    public String portal() {
         return "redirect:/index";
     }
-
-    @RequestMapping(value = "/index",method = RequestMethod.GET)
-    public String index(){
+    /***
+     * 前台index页面路由
+     * @return
+     */
+    @RequestMapping(value = "/index", method = RequestMethod.GET)
+    public String index() {
         return "portal/index";
     }
 }

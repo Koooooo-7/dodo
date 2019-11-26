@@ -10,7 +10,7 @@
 //import java.io.PrintWriter;
 //
 ///**
-// * @Description
+// * @Description 全局异常拦截
 // * @Auther Koy  https://github.com/Koooooo-7
 // * @Date 2019/11/23
 // */
