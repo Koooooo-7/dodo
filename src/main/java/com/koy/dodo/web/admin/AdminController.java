@@ -31,11 +31,7 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping("/admin")
 @Slf4j
 public class AdminController {
-    @Autowired
-    private DodoProperties dodoProperties;
 
-    @Autowired
-    private AdminService adminServiceImpl;
     @RequestMapping(value = "/index", method = RequestMethod.GET)
     public String index() {
         return "admin/index";
@@ -47,28 +43,6 @@ public class AdminController {
     }
 
 
-    @RequestMapping(value = "/addBanner", method = RequestMethod.POST)
-    @ResponseBody
-    public CommonResult addBanner(BannerVO bannerVO) {
-        log.info("addBanner BannerVO:{}",bannerVO);
-        MultipartFile file = bannerVO.getFile();
-        if (file == null || file.isEmpty()) {
-            log.warn("file is empty in BannerVO:{}",bannerVO);
-            return CommonResult.failed(ResultCodeEnums.UPLOAD_FILE_FAILED.getCode(),ResultCodeEnums.UPLOAD_FILE_FAILED.getDesc());
-        }
-
-        FileVO saveFile = FileUtil.saveFile(file, dodoProperties.getFileStorePath());
-        if (saveFile == null){
-            log.warn("file upload failed");
-            return CommonResult.failed(ResultCodeEnums.UPLOAD_FILE_FAILED.getCode(),ResultCodeEnums.UPLOAD_FILE_FAILED.getDesc());
-        }
-        BannerPO bannerPO = new BannerPO();
-        BeanUtils.copyProperties(bannerVO,bannerPO);
-        bannerPO.setSrc(saveFile.getFileSrc());
-        adminServiceImpl.addBanner(bannerPO);
-        log.info("Controller addBanner success, bannerPO:{}",bannerPO);
-        return CommonResult.ok(null);
-    }
 
 
 }

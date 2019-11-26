@@ -1,5 +1,6 @@
 package com.koy.dodo.service;
 
+import com.koy.dodo.common.CommonResult;
 import com.koy.dodo.pojo.BannerVO;
 import com.koy.dodo.pojo.UserVO;
 import com.koy.dodo.pojo.entity.BannerPO;
@@ -17,4 +18,9 @@ public interface AdminService {
      * @param bannerPO
      */
     void addBanner(BannerPO bannerPO);
+
+    /**
+     * Banner列表
+     */
+    CommonResult bannerList();
 }

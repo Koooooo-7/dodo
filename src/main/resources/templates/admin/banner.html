@@ -93,21 +93,21 @@
                    <th>Banner顺序</th>
                    <th>操作</th>
                    </thead>
-                    <tbody>
-                    <tr>
-                        <th>1</th>
-                        <td>xxxx.jpg</td>
-                        <td>1</td>
-                        <td>编辑</td>
-                        <td>删除</td>
-                    </tr>
-                    <tr>
-                        <th>2</th>
-                        <td>xxxx2222.jpg</td>
-                        <td>2</td>
-                        <td>编辑</td>
-                        <td>删除</td>
-                    </tr>
+                    <tbody id="bannerList">
+                    <!--<tr>-->
+                        <!--<th>1</th>-->
+                        <!--<td>xxxx.jpg</td>-->
+                        <!--<td>1</td>-->
+                        <!--<td>编辑</td>-->
+                        <!--<td>删除</td>-->
+                    <!--</tr>-->
+                    <!--<tr>-->
+                        <!--<th>2</th>-->
+                        <!--<td>xxxx2222.jpg</td>-->
+                        <!--<td>2</td>-->
+                        <!--<td>编辑</td>-->
+                        <!--<td>删除</td>-->
+                    <!--</tr>-->
                     </tbody>
                 </table>
 
@@ -162,18 +162,43 @@
 </div>
 <script>
     (function () {
+         var loadBannerList =  $.ajax({
+                url: '/admin/api/banner/list',
+                type: 'GET',
+                contentType: "application/json",
+                success: function (res) {
+                    console.log(res);
+                    var data = res.data;
+                    data.forEach(function (item) {
+                        var str = " <tr>\n" +
+                            "                        <th>"+item.id+"</th>\n" +
+                            "                        <td>"+item.name+"</td>\n" +
+                            "                        <td>"+item.sort+"</td>\n" +
+                            "                        <td>编辑</td>\n" +
+                            "                        <td>删除</td>\n" +
+                            "                    </tr>"
+                        $("#bannerList").append(str);
+                    })
 
+
+                },
+                error: function (response) {
+                    console.log(response);
+                }
+            });
+        // 添加Banner
         $("#banner-add-save").click(function () {
-            console.log($(this))
-            console.log($("#bannerPic"))
+            // TODO 参数校验
             var bannerName = $("#bannerName").val();
-            var bannerSort = $("#bannerSort").val()||9999;
-            var data = new FormData()
+            var bannerSort = $("#bannerSort").val()||99999;
+            var data = new FormData();
             data.append("name",bannerName);
-            data.append("sort",bannerSort);
+            if (bannerSort !== 99999) {
+                data.append("sort",bannerSort);
+            }
             data.append("file",$("#bannerPic")[0].files[0]);
             $.ajax({
-                url:'/admin/addBanner',
+                url:'/admin/api/banner/add',
                 dataType:'json',
                 type:'POST',
                 async: false,
