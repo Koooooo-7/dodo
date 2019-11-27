@@ -8,6 +8,8 @@ import com.fasterxml.jackson.annotation.JsonView;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.Data;
 import lombok.ToString;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.math.NumberUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 /**
@@ -26,5 +28,9 @@ public class BannerVO {
     private int status;
     @JsonIgnore
     private MultipartFile file;
+
+    public boolean isLegalParamsOnUpdateById(){
+        return id != null;
+    }
 
 }

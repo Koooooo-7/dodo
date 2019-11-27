@@ -1,5 +1,6 @@
 package com.koy.dodo.pojo.entity;
 
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -19,6 +20,7 @@ public class BannerPO extends BaseEntity {
     private String name;
     private String src;
     private int sort;
+    @TableLogic
     private int status;
 
 

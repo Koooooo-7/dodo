@@ -17,6 +17,10 @@
     margin-top: 20px;
 
 }
+
+.dodo-galley-img{
+    height: 400px;
+}
 /*ABOUT US*/
 .heading{position: relative;display: block;text-transform: uppercase;margin-bottom: 30px;text-align: center}
 .heading .sub{font-size: 15px;letter-spacing: 10px;color: #C4A648;}

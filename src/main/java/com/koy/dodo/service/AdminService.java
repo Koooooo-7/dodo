@@ -23,4 +23,14 @@ public interface AdminService {
      * Banner列表
      */
     CommonResult bannerList();
+
+    /**
+     * 编辑Banner
+     */
+    CommonResult editBanner(BannerVO bannerVO);
+
+    /**
+     * 删除Banner
+     */
+    CommonResult deleteBanner(String bannerId);
 }

@@ -32,3 +32,6 @@ mybatis-plus:
 dodo:
   # 上传文件存储根目录
   fileStorePath: F:/
+logging:
+  level:
+    com.koy: debug

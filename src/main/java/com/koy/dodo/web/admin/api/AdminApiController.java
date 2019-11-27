@@ -74,4 +74,28 @@ public class AdminApiController {
         return CommonResult.ok(null);
     }
 
+    /**
+     * 编辑Banner
+     * @return
+     */
+    @RequestMapping(value = "/banner/edit",method = RequestMethod.POST)
+    public CommonResult editBanner(BannerVO bannerVO){
+        log.info("editBanner BannerVO:{}",bannerVO);
+        CommonResult result = adminServiceImpl.editBanner(bannerVO);
+        log.info("editBanner result:{}",result);
+        return result;
+    }
+
+    /**
+     * 删除Banner
+     * @return
+     */
+    @RequestMapping(value = "/banner/delete",method = RequestMethod.POST)
+    public CommonResult deleteBanner(String bannerId){
+        log.info("deleteBanner BannerId:{}",bannerId);
+        CommonResult result = adminServiceImpl.deleteBanner(bannerId);
+        log.info("deleteBanner result:{}",result);
+        return result;
+    }
+
 }
