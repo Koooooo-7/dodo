@@ -11,6 +11,9 @@ import com.koy.dodo.util.FileUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,7 +36,18 @@ import javax.servlet.http.HttpServletRequest;
 public class AdminController {
 
     @RequestMapping(value = "/index", method = RequestMethod.GET)
-    public String index() {
+    public String index(HttpServletRequest request) {
+        // 获取username
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        Object principal = authentication.getPrincipal();
+        String username;
+        if (principal instanceof UserDetails){
+            username = ((UserDetails) principal).getUsername();
+        }else {
+            username = principal.toString();
+        }
+        request.getSession().setAttribute("username",username);
+        log.info("user login  success,username:{}",principal);
         return "admin/index";
     }
 
