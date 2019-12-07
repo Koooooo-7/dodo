@@ -32,7 +32,7 @@
             </div>
 
             <div class="alert alert-warning alert-dismissible" role="alert" style="text-align: center">
-                <strong th:text="${session.adminLoginMsg} == null? '请输入您的帐号密码':${session.adminLoginMsg}"></strong>
+                <strong th:text="${session['SPRING_SECURITY_LAST_EXCEPTION'].message} == null? '请输入您的帐号密码':${session['SPRING_SECURITY_LAST_EXCEPTION'].message}"></strong>
             </div>
             <form class="form-horizontal" action="/admin/doLogin" method="post">
                 <div class="form-group">

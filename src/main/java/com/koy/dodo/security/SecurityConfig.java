@@ -1,6 +1,5 @@
 package com.koy.dodo.security;
 
-import com.koy.dodo.security.core.DodoAccessDeniedHandler;
 import com.koy.dodo.security.core.DodoUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -9,12 +8,8 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Component;
 
 /**
  * @Description
@@ -27,8 +22,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private DodoUserDetailsService dodoUserDetailsService;
-    @Autowired
-    private DodoAccessDeniedHandler dodoAccessDeniedHandler;
+//    @Autowired
+//    private DodoAccessDeniedHandler dodoAccessDeniedHandler;
     /**
      * security拦截配置
      * @param http
@@ -55,8 +50,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 //RequestDispatcher rd = request.getRequestDispatcher("/user/detail").forward( request , response )
 //                .successForwardUrl("/user/detail")
                 .and().logout().logoutSuccessUrl("/admin/login")
-                // 没有权限时的处理
-                .and().exceptionHandling().accessDeniedHandler(dodoAccessDeniedHandler)
+                // 权限不足时的处理
+//                .and().exceptionHandling().accessDeniedHandler(dodoAccessDeniedHandler)
                 .and()
                 .csrf()
                 .disable();
