@@ -48,30 +48,6 @@ public class UserController {
     @RequestMapping(value = "/login" ,method = RequestMethod.GET)
     public String login(HttpServletRequest request)
     {
-//        if (request.getSession().getAttribute("username") != null){
-//            return "redirect:/admin/index";
-//        }
-
         return "/admin/login";
     }
-
-//    /**
-//     * 登录认证逻辑
-//     * @return
-//     */
-//    @RequestMapping(value = "/doLogin",method = RequestMethod.POST)
-//    public String doLogin(UserVO userVO,HttpServletRequest request){
-//        log.info("doLogin,user:{}",userVO);
-//        UserPO userPO = userServiceImpl.login(userVO);
-//        HttpSession session = request.getSession();
-//        if (userPO == null){
-//            log.warn("user not exist user:{}",userVO);
-//            session.setAttribute("adminLoginMsg", ResultCodeEnums.USER_NOT_EXIST.getDesc());
-//            return "/admin/login";
-//        }
-//
-//        session.setAttribute("username",userPO.getUsername());
-//        log.info("doLogin success,user:{}",userPO);
-//        return "redirect:/admin/index";
-//    }
 }
